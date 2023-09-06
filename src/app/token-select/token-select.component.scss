@@ -1,0 +1,15 @@
+.token-select {
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 2rem;
+}
+
+.token-select::after {
+    border: none;
+    background-image: url("/assets/white-tokenselect-arrow.png");
+    width: 12px;
+    height: 8px;
+  }

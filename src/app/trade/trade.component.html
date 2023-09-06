@@ -1,0 +1,204 @@
+<app-header></app-header>
+
+<div class="page-layout">
+  <div class="d-flex Exchange-content">
+    <div class="d-flex flex-column main-trade Exchange-left">
+      <div class="d-flex" style="width: 100%;gap: 1rem;">
+        <!-- trade coin header -->
+        <div class="ExchangeChart tv">
+          <div class="ExchangeChart-header">
+            <div class="ExchangeChart-info">
+              <div class="ExchangeChart-top-inner">
+                <div ngbDropdown class="d-inline-block">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary trade-coin-selected d-flex align-items-center"
+                    id="tradeCoinSelected"
+                    ngbDropdownToggle
+                  >
+                    <img
+                      src="/assets/eth.png"
+                      class="trade-coin-img"
+                      alt="GMX Logo"
+                    />
+                    <span class="trade-coin-name">ETH-PERP</span>
+                  </button>
+                  <div
+                    ngbDropdownMenu
+                    aria-labelledby="dropdownBasic1"
+                  >
+                    <button ngbDropdownItem>BTC-PERP</button>
+                  </div>
+                </div>
+                <div class="Chart-min-max-price">
+                  <div class="ExchangeChart-main-price">$0.2565</div>
+                  <div class="ExchangeChart-info-label">$0.2565</div>
+                </div>
+                <div class="Chart-24h-change">
+                  <div class="ExchangeChart-info-label">24h Change</div>
+                  <div class="positive">+0.04%</div>
+                </div>
+                <div class="ExchangeChart-additional-info">
+                  <div class="ExchangeChart-info-label">Funding Rate</div>
+                  <div>0.2594</div>
+                </div>
+                <div class="ExchangeChart-additional-info Chart-24h-low">
+                  <div class="ExchangeChart-info-label">CountDown</div>
+                  <div>0.2552</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ExchangeChart-bottom App-box App-box-border">
+            <div class="ExchangeChart-error">
+              <div
+                class="TVChartContainer ExchangeChart-bottom-content"
+                style="visibility: visible"
+              >
+                <iframe
+                  id="tradingview_fd5c6"
+                  name="tradingview_fd5c6"
+                  title="Financial Chart"
+                  frameborder="0"
+                  allowtransparency="true"
+                  scrolling="no"
+                  allowfullscreen
+                  style="display: block; width: 100%; height: 100%"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- order book -->
+        <app-order-book></app-order-book>
+      </div>
+      <app-exchange-list
+      (onShowColleteralPopup)="showColleeralPopup()"
+      (onShowClosePosPopup)="showClosePosPopup()"
+      ></app-exchange-list>
+    </div>
+  
+    <!-- operation -->
+    <div class="Exchange-right">
+      <div class="Exchange-swap-box">
+        <ul
+          ngbNav
+          #nav="ngbNav"
+          class="nav-tabs Tab block Exchange-swap-option-tabs"
+        >
+          <li ngbNavItem>
+            <button ngbNavLink>
+              <img src="/assets/long-icon.png" />
+              Long
+            </button>
+            <ng-template ngbNavContent>
+              <div class="Tab inline Exchange-swap-order-type-tabs">
+                <div class="Tab-option muted">Market</div>
+                <div class="Tab-option muted active">Limit</div>
+              </div>
+              <app-trade-order-tabs></app-trade-order-tabs>
+              <div class="Exchange-swap-ball-container">
+                <button type="button" class="Exchange-swap-ball">
+                </button>
+              </div>
+              <app-trade-order-tabs></app-trade-order-tabs>
+              <div class="custom-slider">
+                <p>Leverage slider</p>
+                <ngx-slider
+                  [(value)]="value"
+                  [options]="options"
+                  class="custom-slider"
+                ></ngx-slider>
+              </div>
+              <div class="Exchange-info-row">
+                <div class="Exchange-info-label">Collateral In</div>
+                <div class="align-right">
+                  <span class="Tooltip"
+                    ><span class="Tooltip-handle">USD</span></span
+                  >
+                </div>
+              </div>
+              <div class="App-card-divider"></div>
+              <div class="Exchange-info-row">
+                <div class="Exchange-info-label">Leverage</div>
+                <div class="align-right">1.99X</div>
+              </div>
+              <div class="Exchange-info-row">
+                <div class="Exchange-info-label">Entry Price</div>
+                <div class="align-right">-</div>
+              </div>
+              <div class="Exchange-info-row">
+                <div class="Exchange-info-label">Liq. Price</div>
+                <div class="align-right">-</div>
+              </div>
+              <div class="App-card-divider"></div>
+              <div class="Exchange-info-row">
+                <div class="Exchange-info-label">Fees</div>
+                <div class="align-right"><div>-</div></div>
+              </div>
+              <div class="Exchange-swap-button-container">
+                <button class="button primary-action w-full center">
+                  Connect Wallet
+                </button>
+              </div>
+              <div class="App-card-divider"></div>
+              <div class="Exchange-swap-info-group">
+                <div class="Exchange-swap-market-box App-box App-box-border">
+                  <div class="Exchange-info-row">
+                    <div class="Exchange-info-label">Entry Price</div>
+                    <div class="align-right">
+                      <span class="Tooltip"
+                        ><span class="Tooltip-handle">$1,633.78</span></span
+                      >
+                    </div>
+                  </div>
+                  <div class="Exchange-info-row">
+                    <div class="Exchange-info-label">Exit Price</div>
+                    <div class="align-right">
+                      <span class="Tooltip"
+                        ><span class="Tooltip-handle">$1,633.78</span></span
+                      >
+                    </div>
+                  </div>
+                  <div class="Exchange-info-row">
+                    <div class="Exchange-info-label">Borrow Fee</div>
+                    <div class="align-right">
+                      <span class="Tooltip"
+                        ><span class="Tooltip-handle">0.0022% / 1h</span></span
+                      >
+                    </div>
+                  </div>
+                  <div class="Exchange-info-row">
+                    <div class="Exchange-info-label">Available Liquidity</div>
+                    <div class="align-right">
+                      <span class="Tooltip"
+                        ><span class="Tooltip-handle">$13,896,524.49</span></span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <li ngbNavItem>
+            <button ngbNavLink>
+              <img src="/assets/short-icon.png" />
+              Short
+            </button>
+            <ng-template ngbNavContent>Second content</ng-template>
+          </li>
+        </ul>
+        <div [ngbNavOutlet]="nav"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-close-position-popup 
+*ngIf="isShowClosePosPopup"
+(onClose)="isShowClosePosPopup = false" 
+></app-close-position-popup>
+<app-edit-collateral-popup *ngIf="isShowCollateralPopup"
+(onClose)="isShowCollateralPopup = false" 
+></app-edit-collateral-popup>

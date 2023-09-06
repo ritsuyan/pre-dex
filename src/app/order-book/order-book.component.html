@@ -1,0 +1,89 @@
+<div name="orderbook" class="css-1sbei15">
+  <div class="starship-row book-header ">
+    <div class="lt">
+      <div class="title">Order Book</div>
+    </div>
+    <div class="rt"><span class="sm-txt">0.01</span><button type="button"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only starship-btn plus-badge starship-btn-dark round"><svg
+          xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 10 10" fill="currentColor">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M5.41732 4.58301L9.16732 4.58301L9.16732 5.41634L5.41732 5.41634L5.41732 9.16634L4.58398 9.16634L4.58398 5.41634L0.833984 5.41634L0.833984 4.58301L4.58398 4.58301L4.58398 0.833008L5.41732 0.833008L5.41732 4.58301Z">
+          </path>
+        </svg></button><button type="button"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only starship-btn minus-badge starship-btn-dark round"><svg
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="currentColor">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M5.41732 4.58301L9.16732 4.58301L9.16732 5.41634L5.41732 5.41634L4.58398 5.41634L0.833984 5.41634L0.833984 4.58301L4.58398 4.58301L5.41732 4.58301Z">
+          </path>
+        </svg></button></div>
+  </div>
+  <div class="width: 100%;">
+    <div name="orderbook" class="orderbook">
+      <div id="futuresOrderbook" class="css-1qrzxvp">
+        <div class="starship-row orderbook-lead"><span class="t green starship-tooltip-text undefined"><svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="transparent">
+              <path d="M4 7.2002L8 3.2002L12 7.2002" stroke="#32D583" stroke-width="1.25" stroke-linecap="round">
+              </path>
+              <path d="M8 3.20036L8 12.5337" stroke="#32D583" stroke-width="1.25" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>$1,629.73</span><span class="description"><span data-testid="mid-market-price"
+              class="value lead">$1,630.17<span class="index">Oracle</span></span></span></div>
+        <div class="orderbook-tbheader">
+          <div class="content">
+            <div class="item" style="justify-content: flex-start; text-align: center">Size</div>
+            <div class="item" style="justify-content: flex-end">Price</div>
+            <div class="item" style="justify-content: flex-end">Size</div>
+          </div>
+        </div>
+        <div class="orderlist-container">
+          <app-order-price-item></app-order-price-item>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex items-center justify-between px-1 py-1">
+    <div class="d-flex px-1 pb-1 space-x-1"><button
+        class="space-x-2  hover:bg-tabs-hover opacity-50 h-[26px] text-sm py-[4px] px-[8px] text-text-secondary-button bg-button-secondary-bg hover:bg-button-secondary-bg-hover border-button-border border  disabled:cursor-not-allowed disabled:bg-button-disabled disabled:hover:bg-button-disabled disabled:text-text-disabled inline-flex rounded-sm font-display items-center justify-center"><span
+          role="img" aria-hidden="true"
+          style="color: currentcolor; width: 16px; height: 16px; display: inline-flex; font-size: inherit;"
+          class="icon-label"><svg width="inherit" height="inherit" viewBox="0 0 16 16" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M7 8.368H1.437A.438.438 0 001 8.806v2.072c0 .242.196.438.438.438h8.458a.437.437 0 00.437-.438V8.806a.437.437 0 00-.437-.438H7zm3 3.685H1.437A.438.438 0 001 12.49v2.072c0 .242.196.438.438.438h13.124a.438.438 0 00.438-.438V12.49a.438.438 0 00-.438-.437H10z"
+              fill="#34CB88"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M7 4.684H1.437A.438.438 0 001 5.122v2.072c0 .242.196.438.438.438h8.458a.437.437 0 00.437-.438V5.122a.437.437 0 00-.437-.438H7zM10 1H1.437A.438.438 0 001 1.438V3.51c0 .242.196.437.438.437h13.124A.438.438 0 0015 3.51V1.438A.438.438 0 0014.562 1H10z"
+              fill="#FF887F"></path>
+          </svg></span></button><button
+        class="space-x-2 bg-tabs-selected hover:bg-tabs-hover  h-[26px] text-sm py-[4px] px-[8px] text-text-secondary-button bg-button-secondary-bg hover:bg-button-secondary-bg-hover border-button-border border border border-container-border disabled:cursor-not-allowed disabled:bg-button-disabled disabled:hover:bg-button-disabled disabled:text-text-disabled inline-flex rounded-sm font-display items-center justify-center"><span
+          role="img" aria-hidden="true"
+          style="color: currentcolor; width: 16px; height: 16px; display: inline-flex; font-size: inherit;"><svg
+            width="inherit" height="inherit" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M10.563 1h-2.23v2.947h2.23A.438.438 0 0011 3.51V1.438A.438.438 0 0010.562 1zm1.333 3.684H8.333v2.948h3.563a.438.438 0 00.437-.438V5.122a.438.438 0 00-.437-.438zM8.333 8.368h4.896c.242 0 .438.196.438.438v2.072a.438.438 0 01-.438.438H8.333V8.368zm6.23 3.685h-6.23V15h6.23a.438.438 0 00.437-.438V12.49a.438.438 0 00-.438-.437z"
+              fill="#FF887F"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M5.438 1h2.229v2.947h-2.23A.438.438 0 015 3.51V1.438C5 1.196 5.196 1 5.438 1zM4.104 4.684h3.563v2.948H4.104a.437.437 0 01-.437-.438V5.122c0-.242.196-.438.437-.438zm3.563 3.684H2.77a.438.438 0 00-.438.438v2.072c0 .242.196.438.438.438h4.896V8.368zm-6.23 3.685h6.23V15h-6.23A.438.438 0 011 14.562V12.49c0-.242.196-.437.438-.437z"
+              fill="#34CB88"></path>
+          </svg></span></button></div>
+    <div class="outline-none focus:outline-none flex ml-3 text-xs font-display text-darkBlue-30">
+      <div>Spread: 0.10%</div>
+    </div>
+    <div class="inline-flex items-center mr-1 text-xs font-display text-darkBlue-30">
+      <div class="rounded p-1 relative" id="GROUPING_SELECTION">
+        <div class="relative flex flex-col items-end text-xs text-darkBlue-30 px-6 py-2 rounded-md
+        focus:outline-none disabled:cursor-not-allowed inline-block hover:cursor-pointer css-1hjjb1b ewtxjto0">
+          <div class="font-display text-xs text-darkBlue-30 rounded bg-container-bg">
+            <div class="flex items-center justify-between space-x-1 pr-1 pl-2"><span>$0.01</span><span role="img"
+                aria-hidden="true" class="rotate-180 h-5 w-5 transition-all"
+                style="color: currentcolor; width: 16px; height: 16px; display: inline-flex; font-size: inherit;"><svg
+                  viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 10L8 6l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

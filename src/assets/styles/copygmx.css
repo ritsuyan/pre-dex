@@ -1,0 +1,544 @@
+
+body {
+    background-color: rgb(16, 17, 36);
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.App-header-backdrop {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10
+}
+
+.App-content header {
+    position: relative;
+    z-index: 800
+}
+
+.App-header.large {
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    background: transparent 0 0 no-repeat padding-box;
+    border-bottom: 1px solid hsla(0,0%,100%,.063);
+    display: flex;
+    height: 6.2rem;
+    justify-content: space-between;
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+    position: relative
+}
+
+.App-header.large:after {
+    background: transparent linear-gradient(180deg,rgba(0,0,0,.188),transparent) 0 0 no-repeat padding-box;
+    bottom: -1.3rem;
+    content: " ";
+    height: 1.3rem;
+    left: 0;
+    position: absolute;
+    width: 100%
+}
+
+.App-header.large .App-header-links {
+    display: flex
+}
+
+.App-header-link-home,.App-header.small {
+    display: none
+}
+
+.App-header-drawer {
+    -ms-overflow-style: none;
+    -webkit-backdrop-filter: blur(2.7rem);
+    backdrop-filter: blur(2.7rem);
+    background: rgba(23,24,44,.533) 0 0 no-repeat padding-box;
+    box-shadow: .8rem .3rem .6rem rgba(0,0,0,.161);
+    height: 100vh;
+    left: 0;
+    max-width: 100%;
+    opacity: 1;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    scrollbar-width: none;
+    top: 0;
+    width: 30.4rem;
+    z-index: 801
+}
+
+.App-header-drawer::-webkit-scrollbar {
+    display: none
+}
+
+.App-header-drawer .App-header-link-container .a,.App-header-drawer .App-header-link-container a {
+    color: #a0a3c4;
+    display: block;
+    font-size: var(--font-sm);
+    font-weight: 400;
+    letter-spacing: .1px;
+    line-height: 1.8rem;
+    padding: 1.5rem 1.6rem;
+    text-decoration: none
+}
+
+.App-header-drawer .App-header-link-container .a:active,.App-header-drawer .App-header-link-container .a:focus,.App-header-drawer .App-header-link-container .a:hover,.App-header-drawer .App-header-link-container a.active,.App-header-drawer .App-header-link-container a:focus,.App-header-drawer .App-header-link-container a:hover {
+    background: rgba(48,63,208,.141);
+    color: #fff
+}
+
+.App-header-links-header {
+    height: 6.2rem;
+    justify-content: space-between;
+    margin-left: 1.6rem;
+    z-index: 3
+}
+
+.App-header-container-left,.App-header-links-header {
+    align-items: center;
+    display: flex
+}
+
+.App-header-top {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%
+}
+
+.App-header-menu-icon-block {
+    align-items: center;
+    display: flex;
+    margin-left: 0;
+    margin-right: 1.2rem
+}
+
+.App-header-menu-icon {
+    color: #fff;
+    cursor: pointer;
+    font-size: 2rem;
+    margin: .9rem 1rem;
+    opacity: .7
+}
+
+.App-header-menu-icon:hover {
+    opacity: .9
+}
+
+.App-header-link-container a {
+    color: rgb(160, 163, 196);
+    display: block;
+    font-size: var(--font-base);
+    font-weight: 400;
+    line-height: 1.8rem;
+    padding: 1.8rem 1.7rem;
+}
+
+.App-header-backdrop {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .App-header.large {
+    height: 64px;
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+    background: transparent 0% 0% no-repeat padding-box;
+    border-bottom: 1px solid #ffffff10;
+  }
+  
+  .App-header.large::after {
+    height: 1.3rem;
+    width: 100%;
+    content: " ";
+    background: transparent linear-gradient(180deg, #00000030 0%, #00000000 100%) 0% 0% no-repeat padding-box;
+    position: absolute;
+    bottom: -1.3rem;
+    left: 0;
+  }
+  
+  .App-header.large .App-header-links {
+    display: flex;
+  }
+  
+  .App-header.small {
+    display: none;
+  }
+  
+  .App-header-link-home {
+    display: none;
+  }
+  
+  .App-header-drawer {
+    background: #17182c88 0% 0% no-repeat padding-box;
+    box-shadow: 0.8rem 0.3rem 0.6rem #00000029;
+    opacity: 1;
+    backdrop-filter: blur(2.7rem);
+    position: fixed;
+    z-index: 801;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 30.4rem;
+    overflow-y: auto;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  .App-header-drawer::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+  
+  .App-header-drawer .App-header-link-container .a,
+  .App-header-drawer .App-header-link-container a {
+    font-size: var(--font-sm);
+    line-height: 1.8rem;
+    font-weight: normal;
+    letter-spacing: 0.1px;
+    color: #a0a3c4;
+    padding: 1.5rem 1.6rem;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .App-header-drawer .App-header-link-container .a:hover,
+  .App-header-drawer .App-header-link-container .a:focus,
+  .App-header-drawer .App-header-link-container .a:active,
+  .App-header-drawer .App-header-link-container a:hover,
+  .App-header-drawer .App-header-link-container a:focus,
+  .App-header-drawer .App-header-link-container a.active {
+    background: #303fd024;
+    color: white;
+  }
+  
+  .App-header-links-header {
+    height: 6.2rem;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+  }
+  
+  .App-header-container-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .App-header-top {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    /* z-index: 2; */
+  }
+  
+  .App-header-menu-icon-block {
+    margin-right: 1.2rem;
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .App-header-menu-icon {
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    opacity: 0.7;
+    margin: 0.9rem 1rem;
+  }
+  
+  .App-header-menu-icon:hover {
+    opacity: 0.9;
+  }
+  
+  .App-header a.App-header-link-main,
+  .App-header .App-header-link-main {
+    font-size: 1.7rem;
+    padding: 1.5rem;
+    margin-left: -1.5rem;
+    display: flex;
+  }
+  
+  .App-header-link-main img {
+    display: inline-block;
+    width: 35.46542739868164px;
+    height: 33.67485427856445px;
+    vertical-align: middle;
+  }
+  
+  .App-header-link-main img.small {
+    display: none;
+  }
+  
+  .App-header .a,
+  .App-header a {
+    text-decoration: none;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .App-header .a.active,
+  .App-header a.active {
+    pointer-events: none;
+    opacity: 1;
+    color: #eee;
+  }
+  
+  .App-header .a:hover,
+  .App-header a:hover {
+    opacity: 1;
+    color: #eee;
+  }
+  
+  .App-header-container-left .a,
+  .App-header-container-left a {
+    padding: 1.8rem 1.7rem;
+    font-family: Inter;
+font-size: 15px;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
+    display: block;
+    color: #a0a3c4;
+    font-weight: normal;
+  }
+  
+  .App-header-container-left .a.active,
+  .App-header-container-left a.active {
+    color: white;
+  }
+  
+  .App-header-container-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .App-header-user {
+    display: flex;
+    align-items: center;
+  }
+  
+  .App-header-user-settings {
+    display: inline-flex;
+    cursor: pointer;
+    border: none;
+    border-radius: 1.5rem;
+    font-size: var(--font-base);
+    background: none;
+    color: white;
+    padding: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    align-items: center;
+    border-radius: 0.4rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .App-header-user-netowork {
+    margin-right: 2.4rem;
+  }
+  
+  .App-header-user-link {
+    margin-right: 2.4rem;
+  }
+  
+  .App-header-user-address {
+    border: 1px solid #ffffff29;
+    height: 3.6rem;
+    border-radius: 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    position: relative;
+  }
+  
+  @media (max-width: 1033px) {
+    .App-header-user-address {
+      padding: 0 0px;
+    }
+  
+    .App-header-user-link {
+      margin-right: 1.6rem;
+    }
+  
+    .App-header-user-netowork {
+      margin-right: 1.6rem;
+    }
+  
+    .App-header-link-home {
+      display: block;
+    }
+  
+    .App-header-user {
+      padding-bottom: 0;
+    }
+  
+    .App-header-container-right {
+      display: flex;
+      align-items: center;
+    }
+  
+    .App-header-link-desktop {
+      display: none;
+    }
+  
+    .App-header {
+      grid-template-columns: 1fr auto auto auto auto;
+    }
+  
+    .App-header-link-main img {
+      height: 2.1rem;
+    }
+  
+    .App-header.large {
+      display: none;
+    }
+  
+    .App-header.small {
+      height: 6.2rem;
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      padding-left: 1.6rem;
+      padding-right: 1.6rem;
+      background: transparent 0% 0% no-repeat padding-box;
+      border-bottom: 1px solid #ffffff10;
+    }
+  
+    .App-header.small::after {
+      height: 1.3rem;
+      width: 100%;
+      content: " ";
+      background: transparent linear-gradient(180deg, #00000030 0%, #00000000 100%) 0% 0% no-repeat padding-box;
+      position: absolute;
+      bottom: -1.3rem;
+      left: 0;
+    }
+  
+    a.App-header-user-account {
+      margin-right: 0;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .App-header-link-main img.big {
+      display: none;
+    }
+  
+    .App-header-link-main img.small {
+      display: inline-block;
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .App-header-user-link {
+      margin-right: 0.6rem;
+    }
+  
+    .App-header-user-netowork {
+      margin-right: 0.6rem;
+    }
+  
+    .App-header-menu-icon-block {
+      margin-left: 0;
+      margin-right: 0.4rem;
+    }
+  
+    .App-header-menu-icon {
+      margin: 0.4rem 0.5rem;
+    }
+  
+    .App-header.small {
+      padding-left: 0.6rem;
+      padding-right: 0.6rem;
+    }
+  
+    .App-header .App-header-link-main {
+      padding: 0.155rem !important;
+      margin-left: 0rem !important;
+    }
+  }
+  
+  @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .App-header-drawer {
+      background: #0e0f1f;
+    }
+  }
+  
+
+  .connect-wallet-btn {
+    background: transparent;
+    padding: 0.5rem 1.4rem;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    color: #fff;
+    font-size: var(--font-sm);
+    cursor: pointer;
+    border: 1px solid var(--dark-blue-border);
+    border-radius: var(--border-radius-sm);
+
+  }
+
+  .connect-wallet-btn .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .connect-wallet-btn .btn-label {
+    font-weight: 400;
+    font-size: var(--font-sm);
+    margin-left: 0.8rem;
+    letter-spacing: 0;
+  }
+
+  .default-btn {
+    background: #2d42fc;
+    border-radius: 4px;
+    font-size: var(--font-sm);
+    line-height: 2rem;
+    font-weight: normal;
+    letter-spacing: 0px;
+    color: #ffffff !important;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    /* padding: 9px 16px!important; */
+    text-decoration: none;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-flex !important;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    appearance: none;
+  }
+  
+  .default-btn:hover {
+    background: var(--primary-btn-hover);
+  }
+
+  .connect-wallet-btn .btn-label {
+    font-size: var(--font-sm);
+    font-weight: 400;
+    letter-spacing: 0px;
+    margin-left: 0.8rem;
+}

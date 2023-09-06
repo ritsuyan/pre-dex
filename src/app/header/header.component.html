@@ -1,0 +1,62 @@
+<div class="App-header large">
+  <div class="App-header-container-left"><a class="App-header-link-main"
+      href="#/">
+      <img src="/assets/logo.png" class="big" alt="GMX Logo">
+      <img
+        src="/static/media/logo_GMX_small.f593fa5cb887e7339f9b51688330c62b.svg"
+        class="small" alt="GMX Logo"></a>
+    <div class="App-header-links">
+      <div class="App-header-link-container"><a class="active"
+          href="#/dashboard" aria-current="page">Dashboard</a>
+      </div>
+      <div class="App-header-link-container"><a class href="#/earn">Earn</a></div>
+      <div class="App-header-link-container"><a class href="#/buy">Buy</a></div>
+      <div class="App-header-link-container"><a class href="#/referrals">Referrals</a></div>
+      <div class="App-header-link-container"><a class href="#/ecosystem">Ecosystem</a></div>
+      <div class="App-header-link-container"><a href="https://docs.gmx.io/"
+          class="link-underline" target="_blank"
+          rel="noopener noreferrer">Docs</a></div>
+    </div>
+  </div>
+  <div class="App-header-container-right">
+    <div class="App-header-user">
+      <div class="App-header-trade-link"><a class="default-btn" href="#/trade">Trade</a></div>
+      <div ngbDropdown class="d-flex">
+        <button type="button" class="btn btn-outline-primary address-btn"
+          id="dropdownBasic1" ngbDropdownToggle>
+          <div (click)="showConnectWallet()"
+            style="overflow: hidden; width: 20px; height: 20px; background-color: rgb(3, 93, 85); border-radius: 10px;"><svg
+              width="20px" height="20px"><rect x="0" y="0" width="20"
+                height="20" fill="#018C6D"
+                transform="translate(0.8745378810324884 -0.2741701128178655) rotate(348.5 10 10)"></rect><rect
+                x="0" y="0" width="20" height="20" fill="#FC3600"
+                transform="translate(12.35095295485341 -1.3825900835246685) rotate(419.7 10 10)"></rect><rect
+                x="0" y="0" width="20" height="20" fill="#F16302"
+                transform="translate(-16.67180648240463 -10.200575835321695) rotate(223.0 10 10)"></rect></svg></div>
+          <span class="user-address">0xc842...6e86</span>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem>Arbitrum</button>
+          <button ngbDropdownItem>Etherum</button>
+          <button ngbDropdownItem>Op</button>
+        </div>
+      </div>
+      <div class="App-header-network"><div class="network-dropdown"
+          id="headlessui-menu-button-1" aria-haspopup="true"
+          aria-expanded="false"><button class="transparent"><img
+              class="network-dropdown-icon"
+              src="/assets/arb.png"
+              alt="Arbitrum Goerli"></button><div
+            class="network-dropdown-seperator"></div><button class="transparent"><svg
+              stroke="currentColor" fill="currentColor" stroke-width="0"
+              viewBox="0 0 20 20" color="white" height="20" width="20"
+              xmlns="http://www.w3.org/2000/svg" style="color: white;"><path
+                d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg></button></div></div>
+    </div>
+  </div>
+</div>
+
+<app-connect-wallet-popup
+*ngIf="isShowConnectWalletPopup"
+(onClose)="isShowConnectWalletPopup = false" 
+></app-connect-wallet-popup>

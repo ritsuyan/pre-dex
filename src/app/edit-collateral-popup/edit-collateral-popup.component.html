@@ -1,0 +1,75 @@
+<div class="Modal PositionEditor-modal" style="opacity: 1;">
+    <div class="Modal-backdrop" style="overflow: hidden; position: fixed;"></div>
+    <div class="Modal-content">
+        <div class="Modal-header-wrapper">
+            <div class="Modal-title-bar">
+                <div class="Modal-title">Edit Long ETH</div>
+                <div class="Modal-close-button" (click)="close()"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                        viewBox="0 0 24 24" font-size="20" class="Modal-close-icon" height="1em" width="1em"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+                        </path>
+                    </svg></div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div>
+            <div class="Modal-body">
+                <div class="Tab block PositionEditor-tabs SwapBox-option-tabs">
+                    <div class="Tab-option muted active">Deposit</div>
+                    <div class="Tab-option muted">Withdraw</div>
+                </div>
+                <div>
+                    <div class="Exchange-swap-section buy-input">
+                        <div class="buy-input-top-row">
+                            <div class="text-gray">Deposit: $0.00</div>
+                            <div class="align-right"><span class="text-gray">Max</span><span
+                                    class="Exchange-swap-label">:&nbsp;0.0000</span></div>
+                        </div>
+                        <div class="Exchange-swap-section-bottom">
+                            <div class="Exchange-swap-input-container"><input type="number" min="0" placeholder="0.0"
+                                    step="any" class="Exchange-swap-input" value=""></div>
+                            <div class="PositionEditor-token-symbol">USDC</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="PositionEditor-info-box">
+                    <div class="Exchange-info-row">
+                        <div class="Exchange-info-label">Leverage</div>
+                        <div class="align-right ">1.10x</div>
+                    </div>
+                    <div class="Exchange-info-row top-line">
+                        <div class="Exchange-info-label">Entry Price</div>
+                        <div class="align-right ">$1,636.97</div>
+                    </div>
+                    <div class="Exchange-info-row">
+                        <div class="Exchange-info-label">Mark Price</div>
+                        <div class="align-right ">$1,637.27</div>
+                    </div>
+                    <div class="Exchange-info-row">
+                        <div class="Exchange-info-label">Liq Price</div>
+                        <div class="align-right ">$241.07</div>
+                    </div>
+                    <div class="Exchange-info-row top-line">
+                        <div class="Exchange-info-label">Size</div>
+                        <div class="align-right ">$17.97</div>
+                    </div>
+                    <div class="Exchange-info-row">
+                        <div><span class="Tooltip"><span class="Tooltip-handle"><span
+                                        class="Exchange-info-label">Collateral (USDC)</span></span></span></div>
+                        <div class="align-right">$16.34</div>
+                    </div>
+                    <div class="Exchange-info-row TradeFeesRow">
+                        <div class="Exchange-info-label">Fees</div>
+                        <div class="align-right "><span class="Tooltip TradeFeesRow-tooltip"><span
+                                    class="Tooltip-handle"><span class=""> -$0.81</span></span></span></div>
+                    </div>
+                </div>
+                <div class="Exchange-swap-button-container Confirmation-box-row"><button
+                        class="button primary-action w-full center" disabled="">Enter an amount</button></div>
+            </div>
+        </div>
+    </div>
+</div>
