@@ -6,6 +6,7 @@ import {Component, ViewEncapsulation, EventEmitter, Input, OnInit, Output, Eleme
   styleUrls: ['./exchange-list.component.scss']
 })
 export class ExchangeListComponent {
+  @Input() dynaticStyle?: string;
   @Output() onShowColleteralPopup: EventEmitter<any> = new EventEmitter();
   @Output() onShowClosePosPopup: EventEmitter<any> = new EventEmitter();
 

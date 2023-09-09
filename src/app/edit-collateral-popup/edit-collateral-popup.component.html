@@ -17,58 +17,118 @@
         <div class="divider"></div>
         <div>
             <div class="Modal-body">
-                <div class="Tab block PositionEditor-tabs SwapBox-option-tabs">
-                    <div class="Tab-option muted active">Deposit</div>
-                    <div class="Tab-option muted">Withdraw</div>
-                </div>
-                <div>
-                    <div class="Exchange-swap-section buy-input">
-                        <div class="buy-input-top-row">
-                            <div class="text-gray">Deposit: $0.00</div>
-                            <div class="align-right"><span class="text-gray">Max</span><span
-                                    class="Exchange-swap-label">:&nbsp;0.0000</span></div>
+
+                <div ngbNav #nav="ngbNav" class="Tab block PositionEditor-tabs SwapBox-option-tabs">
+                    <div ngbNavItem class="Tab-option muted">
+                      <button ngbNavLink>Deposit</button>
+                      <ng-template ngbNavContent>
+                        <div>
+                            <div class="Exchange-swap-section buy-input">
+                                <div class="buy-input-top-row">
+                                    <div class="text-gray">Deposit: $0.00</div>
+                                    <div class="align-right"><span class="text-gray">Max</span><span
+                                            class="Exchange-swap-label">:&nbsp;0.0000</span></div>
+                                </div>
+                                <div class="Exchange-swap-section-bottom">
+                                    <div class="Exchange-swap-input-container"><input type="number" min="0" placeholder="0.0"
+                                            step="any" class="Exchange-swap-input" value=""></div>
+                                    <div class="PositionEditor-token-symbol">USDC</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="Exchange-swap-section-bottom">
-                            <div class="Exchange-swap-input-container"><input type="number" min="0" placeholder="0.0"
-                                    step="any" class="Exchange-swap-input" value=""></div>
-                            <div class="PositionEditor-token-symbol">USDC</div>
+                        <div class="PositionEditor-info-box">
+                            <div class="Exchange-info-row">
+                                <div class="Exchange-info-label">Leverage</div>
+                                <div class="align-right ">1.10x</div>
+                            </div>
+                            <div class="Exchange-info-row top-line">
+                                <div class="Exchange-info-label">Entry Price</div>
+                                <div class="align-right ">$1,636.97</div>
+                            </div>
+                            <div class="Exchange-info-row">
+                                <div class="Exchange-info-label">Mark Price</div>
+                                <div class="align-right ">$1,637.27</div>
+                            </div>
+                            <div class="Exchange-info-row">
+                                <div class="Exchange-info-label">Liq Price</div>
+                                <div class="align-right ">$241.07</div>
+                            </div>
+                            <div class="Exchange-info-row top-line">
+                                <div class="Exchange-info-label">Size</div>
+                                <div class="align-right ">$17.97</div>
+                            </div>
+                            <div class="Exchange-info-row">
+                                <div><span class="Tooltip"><span class="Tooltip-handle"><span
+                                                class="Exchange-info-label">Collateral (USDC)</span></span></span></div>
+                                <div class="align-right">$16.34</div>
+                            </div>
+                            <div class="Exchange-info-row TradeFeesRow">
+                                <div class="Exchange-info-label">Fees</div>
+                                <div class="align-right "><span class="Tooltip TradeFeesRow-tooltip"><span
+                                            class="Tooltip-handle"><span class=""> -$0.81</span></span></span></div>
+                            </div>
                         </div>
+                        <div class="Exchange-swap-button-container Confirmation-box-row">
+                            <button class="button primary-action w-full center" disabled="">Enter an amount</button>
+                        </div>
+                      </ng-template>
+                    </div>
+                    <div ngbNavItem class="Tab-option muted" >
+                      <button ngbNavLink>Withdraw</button>
+                      <ng-template ngbNavContent>
+                        <div>
+                            <div class="Exchange-swap-section buy-input">
+                                <div class="buy-input-top-row">
+                                    <div class="text-gray">Deposit: $0.00</div>
+                                    <div class="align-right"><span class="text-gray">Max</span><span
+                                            class="Exchange-swap-label">:&nbsp;0.0000</span></div>
+                                </div>
+                                <div class="Exchange-swap-section-bottom">
+                                    <div class="Exchange-swap-input-container"><input type="number" min="0" placeholder="0.0"
+                                            step="any" class="Exchange-swap-input" value=""></div>
+                                    <div class="PositionEditor-token-symbol">USDC</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="PositionEditor-info-box">
+                            <div class="Exchange-info-row">
+                                <div class="Exchange-info-label">Leverage</div>
+                                <div class="align-right ">1.10x</div>
+                            </div>
+                            <div class="Exchange-info-row top-line">
+                                <div class="Exchange-info-label">Entry Price</div>
+                                <div class="align-right ">$1,636.97</div>
+                            </div>
+                            <div class="Exchange-info-row">
+                                <div class="Exchange-info-label">Mark Price</div>
+                                <div class="align-right ">$1,637.27</div>
+                            </div>
+                            <div class="Exchange-info-row">
+                                <div class="Exchange-info-label">Liq Price</div>
+                                <div class="align-right ">$241.07</div>
+                            </div>
+                            <div class="Exchange-info-row top-line">
+                                <div class="Exchange-info-label">Size</div>
+                                <div class="align-right ">$17.97</div>
+                            </div>
+                            <div class="Exchange-info-row">
+                                <div><span class="Tooltip"><span class="Tooltip-handle"><span
+                                                class="Exchange-info-label">Collateral (USDC)</span></span></span></div>
+                                <div class="align-right">$16.34</div>
+                            </div>
+                            <div class="Exchange-info-row TradeFeesRow">
+                                <div class="Exchange-info-label">Fees</div>
+                                <div class="align-right "><span class="Tooltip TradeFeesRow-tooltip"><span
+                                            class="Tooltip-handle"><span class=""> -$0.81</span></span></span></div>
+                            </div>
+                        </div>
+                        <div class="Exchange-swap-button-container Confirmation-box-row">
+                            <button class="button primary-action w-full center" disabled="">Enter an amount</button>
+                        </div>
+                      </ng-template>
                     </div>
                 </div>
-                <div class="PositionEditor-info-box">
-                    <div class="Exchange-info-row">
-                        <div class="Exchange-info-label">Leverage</div>
-                        <div class="align-right ">1.10x</div>
-                    </div>
-                    <div class="Exchange-info-row top-line">
-                        <div class="Exchange-info-label">Entry Price</div>
-                        <div class="align-right ">$1,636.97</div>
-                    </div>
-                    <div class="Exchange-info-row">
-                        <div class="Exchange-info-label">Mark Price</div>
-                        <div class="align-right ">$1,637.27</div>
-                    </div>
-                    <div class="Exchange-info-row">
-                        <div class="Exchange-info-label">Liq Price</div>
-                        <div class="align-right ">$241.07</div>
-                    </div>
-                    <div class="Exchange-info-row top-line">
-                        <div class="Exchange-info-label">Size</div>
-                        <div class="align-right ">$17.97</div>
-                    </div>
-                    <div class="Exchange-info-row">
-                        <div><span class="Tooltip"><span class="Tooltip-handle"><span
-                                        class="Exchange-info-label">Collateral (USDC)</span></span></span></div>
-                        <div class="align-right">$16.34</div>
-                    </div>
-                    <div class="Exchange-info-row TradeFeesRow">
-                        <div class="Exchange-info-label">Fees</div>
-                        <div class="align-right "><span class="Tooltip TradeFeesRow-tooltip"><span
-                                    class="Tooltip-handle"><span class=""> -$0.81</span></span></span></div>
-                    </div>
-                </div>
-                <div class="Exchange-swap-button-container Confirmation-box-row"><button
-                        class="button primary-action w-full center" disabled="">Enter an amount</button></div>
+                  <div [ngbNavOutlet]="nav"></div>
             </div>
         </div>
     </div>

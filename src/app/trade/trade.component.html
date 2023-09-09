@@ -1,14 +1,14 @@
 <app-header></app-header>
 
-<div class="page-layout">
-  <div class="d-flex Exchange-content">
-    <div class="d-flex flex-column main-trade Exchange-left">
-      <div class="d-flex" style="width: 100%;gap: 1rem;">
+<div class="Exchange page-layout">
+  <div class="Exchange-content">
+    <div class="Exchange-left">
+      <div class="Exchange-left-box">
         <!-- trade coin header -->
         <div class="ExchangeChart tv">
           <div class="ExchangeChart-header">
             <div class="ExchangeChart-info">
-              <div class="ExchangeChart-top-inner">
+              <div class="ExchangeChart-top-inner d-flex justify-content-around">
                 <div ngbDropdown class="d-inline-block">
                   <button
                     type="button"
@@ -70,130 +70,260 @@
           </div>
         </div>
         <!-- order book -->
-        <app-order-book></app-order-book>
+        <app-order-book ></app-order-book>
       </div>
       <app-exchange-list
+      [dynaticStyle]="'large'"
       (onShowColleteralPopup)="showColleeralPopup()"
       (onShowClosePosPopup)="showClosePosPopup()"
       ></app-exchange-list>
     </div>
-  
-    <!-- operation -->
+    <div class="smaller-exchange-left">
+      <div class="mobile-switch-chart">
+        <div class="App-box d-flex align-items-center">
+          <div ngbDropdown class="d-inline-block">
+            <button
+              type="button"
+              class="btn btn-outline-primary trade-coin-selected d-flex align-items-center"
+              id="tradeCoinSelected"
+              ngbDropdownToggle
+            >
+              <img
+                src="/assets/eth.png"
+                class="trade-coin-img"
+                alt="GMX Logo"
+              />
+              <span class="trade-coin-name">ETH-PERP</span>
+            </button>
+            <div
+              ngbDropdownMenu
+              aria-labelledby="dropdownBasic1"
+            >
+              <button ngbDropdownItem>BTC-PERP</button>
+            </div>
+          </div>
+        </div>
+        <div class="App-box">
+          <ul role="chartsSwitch" ngbNav #nav3="ngbNav" class="nav-tabs orderBook-box chartsSwitch">
+            <li [ngbNavItem]="1">
+              <button ngbNavLink>
+                <img 
+                src="/assets/chart.png"
+              />
+              </button>
+              <ng-template ngbNavContent>
+                <div class="App-box SwapBox"></div>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="2" ngbNavLink>
+              <button ngbNavLink>
+                <img 
+                src="/assets/orderBook.png"
+              />
+              </button>
+              <ng-template ngbNavContent>
+                <ul role="mobileNav" ngbNav #nav1="ngbNav" [(activeId)]="activeMobileNav" class="nav-tabs orderBook-box">
+                  <li [ngbNavItem]="1">
+                    <button ngbNavLink>
+                      OrderBook
+                    </button>
+                    <ng-template ngbNavContent>
+                      <app-order-book></app-order-book>
+                    </ng-template>
+                  </li>
+                  <li [ngbNavItem]="2">
+                    <button ngbNavLink>
+                      Recent Trade
+                    </button>
+                    <ng-template ngbNavContent>
+                    </ng-template>
+                  </li>
+                </ul>
+                <div [ngbNavOutlet]="nav1" class="mt-2"></div>
+              </ng-template>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div [ngbNavOutlet]="nav3" class="mt-2 chart-content App-box"></div>
+    </div>
     <div class="Exchange-right">
       <div class="Exchange-swap-box">
-        <ul
-          ngbNav
-          #nav="ngbNav"
-          class="nav-tabs Tab block Exchange-swap-option-tabs"
-        >
-          <li ngbNavItem>
-            <button ngbNavLink>
-              <img src="/assets/long-icon.png" />
-              Long
-            </button>
-            <ng-template ngbNavContent>
-              <div class="Tab inline Exchange-swap-order-type-tabs">
-                <div class="Tab-option muted">Market</div>
-                <div class="Tab-option muted active">Limit</div>
-              </div>
-              <app-trade-order-tabs></app-trade-order-tabs>
-              <div class="Exchange-swap-ball-container">
-                <button type="button" class="Exchange-swap-ball">
-                </button>
-              </div>
-              <app-trade-order-tabs></app-trade-order-tabs>
-              <div class="custom-slider">
-                <p>Leverage slider</p>
-                <ngx-slider
-                  [(value)]="value"
-                  [options]="options"
-                  class="custom-slider"
-                ></ngx-slider>
-              </div>
-              <div class="Exchange-info-row">
-                <div class="Exchange-info-label">Collateral In</div>
-                <div class="align-right">
-                  <span class="Tooltip"
-                    ><span class="Tooltip-handle">USD</span></span
-                  >
+        <div>
+          <div class="App-box SwapBox">
+            <ul
+            role="swap-box"
+            ngbNav
+            #nav2="ngbNav"
+            class="nav-tabs Tab block Exchange-swap-option-tabs"
+          >
+            <li ngbNavItem>
+              <button ngbNavLink>
+                <img src="/assets/long-icon.png" />
+                Long
+              </button>
+              <ng-template ngbNavContent>
+                <div class="Tab inline Exchange-swap-order-type-tabs">
+                  <div class="Tab-option muted" (click)="marketPriceOpen = true; limitPriceOpen = false;"
+                   [ngClass]="{'active': marketPriceOpen}"
+                  >Market</div>
+                  <div class="Tab-option muted active" (click)="limitPriceOpen = true; marketPriceOpen = false;"
+                  [ngClass]="{'active': limitPriceOpen}"
+                  >Limit</div>
                 </div>
-              </div>
-              <div class="App-card-divider"></div>
-              <div class="Exchange-info-row">
-                <div class="Exchange-info-label">Leverage</div>
-                <div class="align-right">1.99X</div>
-              </div>
-              <div class="Exchange-info-row">
-                <div class="Exchange-info-label">Entry Price</div>
-                <div class="align-right">-</div>
-              </div>
-              <div class="Exchange-info-row">
-                <div class="Exchange-info-label">Liq. Price</div>
-                <div class="align-right">-</div>
-              </div>
-              <div class="App-card-divider"></div>
-              <div class="Exchange-info-row">
-                <div class="Exchange-info-label">Fees</div>
-                <div class="align-right"><div>-</div></div>
-              </div>
-              <div class="Exchange-swap-button-container">
-                <button class="button primary-action w-full center">
-                  Connect Wallet
-                </button>
-              </div>
-              <div class="App-card-divider"></div>
-              <div class="Exchange-swap-info-group">
-                <div class="Exchange-swap-market-box App-box App-box-border">
-                  <div class="Exchange-info-row">
-                    <div class="Exchange-info-label">Entry Price</div>
-                    <div class="align-right">
-                      <span class="Tooltip"
-                        ><span class="Tooltip-handle">$1,633.78</span></span
-                      >
-                    </div>
-                  </div>
-                  <div class="Exchange-info-row">
-                    <div class="Exchange-info-label">Exit Price</div>
-                    <div class="align-right">
-                      <span class="Tooltip"
-                        ><span class="Tooltip-handle">$1,633.78</span></span
-                      >
-                    </div>
-                  </div>
-                  <div class="Exchange-info-row">
-                    <div class="Exchange-info-label">Borrow Fee</div>
-                    <div class="align-right">
-                      <span class="Tooltip"
-                        ><span class="Tooltip-handle">0.0022% / 1h</span></span
-                      >
-                    </div>
-                  </div>
-                  <div class="Exchange-info-row">
-                    <div class="Exchange-info-label">Available Liquidity</div>
-                    <div class="align-right">
-                      <span class="Tooltip"
-                        ><span class="Tooltip-handle">$13,896,524.49</span></span
-                      >
-                    </div>
+                <app-trade-order-tabs
+                [topRightLabel]="'Balance'"
+                [topLeftLabel]="'Pay'"
+                [topRightValue]="'100'"
+                [usdStandardOnly]="true"
+                ></app-trade-order-tabs>
+                <app-trade-order-tabs
+                [topRightLabel]="'Leverage'"
+                [topLeftLabel]="'Long'"
+                [topRightValue]="'100x'"
+                [usdStandardOnly]="true"
+                ></app-trade-order-tabs>
+                <app-trade-order-tabs
+                *ngIf="limitPriceOpen"
+                [topRightLabel]="'Price'"
+                [topLeftLabel]="'Mark'"
+                [topRightValue]="'$25111'"
+                [usdStandardOnly]="true"
+                ></app-trade-order-tabs>
+                <div class="custom-slider">
+                  <p>Leverage slider</p>
+                  <ngx-slider
+                    [(value)]="value"
+                    [options]="options"
+                    class="custom-slider"
+                  ></ngx-slider>
+                </div>
+                <div class="Exchange-info-row">
+                  <div class="Exchange-info-label">Collateral In</div>
+                  <div class="align-right">
+                    <span class="Tooltip"
+                      ><span class="Tooltip-handle">USD</span></span
+                    >
                   </div>
                 </div>
-              </div>
-            </ng-template>
-          </li>
-          <li ngbNavItem>
-            <button ngbNavLink>
-              <img src="/assets/short-icon.png" />
-              Short
-            </button>
-            <ng-template ngbNavContent>Second content</ng-template>
-          </li>
-        </ul>
-        <div [ngbNavOutlet]="nav"></div>
+                <div class="App-card-divider"></div>
+                <div class="Exchange-info-row">
+                  <div class="Exchange-info-label">Leverage</div>
+                  <div class="align-right">1.99X</div>
+                </div>
+                <div class="Exchange-info-row">
+                  <div class="Exchange-info-label">Entry Price</div>
+                  <div class="align-right">-</div>
+                </div>
+                <div class="Exchange-info-row">
+                  <div class="Exchange-info-label">Liq. Price</div>
+                  <div class="align-right">-</div>
+                </div>
+                <div class="App-card-divider"></div>
+                <div class="Exchange-info-row">
+                  <div class="Exchange-info-label">Fees</div>
+                  <div class="align-right"><div>-</div></div>
+                </div>
+                <div class="Exchange-swap-button-container">
+                  <button class="button primary-action w-full center">
+                    Connect Wallet
+                  </button>
+                </div>
+              </ng-template>
+            </li>
+            <li ngbNavItem>
+              <button ngbNavLink>
+                <img src="/assets/short-icon.png" />
+                Short
+              </button>
+              <ng-template ngbNavContent>
+                <div class="Tab inline Exchange-swap-order-type-tabs">
+                  <div class="Tab-option muted" (click)="marketPriceOpen = true; limitPriceOpen = false;"
+                   [ngClass]="{'active': marketPriceOpen}"
+                  >Market</div>
+                  <div class="Tab-option muted active" (click)="limitPriceOpen = true; marketPriceOpen = false;"
+                  [ngClass]="{'active': limitPriceOpen}"
+                  >Limit</div>
+                </div>
+                <app-trade-order-tabs
+                [topRightLabel]="'Balance'"
+                [topLeftLabel]="'Pay'"
+                [topRightValue]="'100'"
+                [usdStandardOnly]="true"
+                ></app-trade-order-tabs>
+                <app-trade-order-tabs
+                [topRightLabel]="'Leverage'"
+                [topLeftLabel]="'Short'"
+                [topRightValue]="'100x'"
+                [usdStandardOnly]="true"
+                ></app-trade-order-tabs>
+                <app-trade-order-tabs
+                *ngIf="limitPriceOpen"
+                [topRightLabel]="'Price'"
+                [topLeftLabel]="'Mark'"
+                [topRightValue]="'$25111'"
+                [usdStandardOnly]="true"
+                ></app-trade-order-tabs>
+                <div class="custom-slider">
+                  <p>Leverage slider</p>
+                  <ngx-slider
+                    [(value)]="value"
+                    [options]="options"
+                    class="custom-slider"
+                  ></ngx-slider>
+                </div>
+                <div class="Exchange-info-row">
+                  <div class="Exchange-info-label">Collateral In</div>
+                  <div class="align-right">
+                    <span class="Tooltip"
+                      ><span class="Tooltip-handle">USD</span></span
+                    >
+                  </div>
+                </div>
+                <div class="App-card-divider"></div>
+                <div class="Exchange-info-row">
+                  <div class="Exchange-info-label">Leverage</div>
+                  <div class="align-right">1.99X</div>
+                </div>
+                <div class="Exchange-info-row">
+                  <div class="Exchange-info-label">Entry Price</div>
+                  <div class="align-right">-</div>
+                </div>
+                <div class="Exchange-info-row">
+                  <div class="Exchange-info-label">Liq. Price</div>
+                  <div class="align-right">-</div>
+                </div>
+                <div class="App-card-divider"></div>
+                <div class="Exchange-info-row">
+                  <div class="Exchange-info-label">Fees</div>
+                  <div class="align-right"><div>-</div></div>
+                </div>
+                <div class="Exchange-swap-button-container">
+                  <button class="button primary-action w-full center">
+                    Connect Wallet
+                  </button>
+                </div>
+                <div class="App-card-divider"></div>
+              </ng-template>
+            </li>
+             </ul>
+            <div [ngbNavOutlet]="nav2"></div>
+          </div>
+        </div>
+        <div class="Exchange-swap-info-group"><div class="Exchange-swap-market-box App-box App-box-border"><div class="App-card-title">Long&nbsp;ETH</div><div class="App-card-divider"></div><div><div class="Exchange-info-row"><div class="Exchange-info-label">Market</div><div class="align-right ">ETH/USD [USDC-DAI]</div></div><div class="Exchange-info-row"><div class="Exchange-info-label">Entry Price</div><div class="align-right "><span class="Tooltip"><span class="Tooltip-handle">$1,650.21</span></span></div></div><div class="Exchange-info-row"><div class="Exchange-info-label">Exit Price</div><div class="align-right "><span class="Tooltip"><span class="Tooltip-handle">$1,650.21</span></span></div></div><div class="Exchange-info-row"><div class="Exchange-info-label">Borrow Fee</div><div class="align-right ">-0.0119% / 1h</div></div><div class="Exchange-info-row"><div class="Exchange-info-label">Funding Fee</div><div class="align-right "><span class="Tooltip al-swap"><span class="Tooltip-handle">-0.0000% / 1h</span></span></div></div><div class="Exchange-info-row"><div class="Exchange-info-label">Available Liquidity</div><div class="align-right "><span class="Tooltip al-swap"><span class="Tooltip-handle">$6,482.32</span></span></div></div><div class="Exchange-info-row"><div class="Exchange-info-label">Open Interest Balance</div><div class="align-right "><div class="MarketCard-pool-balance"><span class="Tooltip"><span class="Tooltip-handle"><div class="ShareBar MarketCard-pool-balance-bar"><div class="ShareBar-fill" style="width: 100%;"></div></div></span></span></div></div></div></div></div><div class="Exchange-swap-market-box App-box App-box-border"><div class="App-card-title">Claimable Funding</div><div class="App-card-divider"></div><div class="Exchange-info-row"><div class="Exchange-info-label">Funding Fees</div><div class="align-right "><span class="Tooltip"><span class="Tooltip-handle">$0.00</span></span></div></div><div class="Exchange-info-row"><div class="Exchange-info-label">Total Claimable</div><div class="align-right ">$0.00</div></div><div class="App-card-options ClaimableCard-actions"></div></div></div>
       </div>
+    </div>
+    <div class="Exchange-lists small">
+      <app-exchange-list
+      [dynaticStyle]="'small'"
+      (onShowColleteralPopup)="showColleeralPopup()"
+      (onShowClosePosPopup)="showClosePosPopup()"
+      ></app-exchange-list>
     </div>
   </div>
 </div>
 
+<app-footer></app-footer>
 
 <app-close-position-popup 
 *ngIf="isShowClosePosPopup"

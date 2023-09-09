@@ -1,179 +1,277 @@
-<div class="Exchange-lists large">
+<div [ngClass]="['Exchange-lists', dynaticStyle]">
+    <div class="Exchange-list-tab-container">
+        <div class="Tab inline Exchange-list-tabs">
+            <div class="Tab-option muted active">Positions (2)</div>
+            <div class="Tab-option muted">Orders</div>
+            <div class="Tab-option muted">Trades</div>
+            <div class="Tab-option muted">Claims</div>
+        </div>
+        <div class="align-right Exchange-should-show-position-lines">
+            <div class="Checkbox muted chart-positions"><span class="Checkbox-icon-wrapper"><svg stroke="currentColor"
+                        fill="currentColor" stroke-width="0" version="1.1" viewBox="0 0 16 16"
+                        class="App-icon Checkbox-icon inactive" height="1em" width="1em"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14 0h-12c-1.1 0-2 0.9-2 2v12c0 1.1 0.9 2 2 2h12c1.1 0 2-0.9 2-2v-12c0-1.1-0.9-2-2-2zM14 14h-12v-12h12v12z">
+                        </path>
+                    </svg></span><span class="Checkbox-label"><span>Chart positions</span></span></div>
+        </div>
+    </div>
     <div>
-        <div class="Exchange-list-tab-container">
-            <ul ngbNav #nav="ngbNav" class="nav-tabs">
-                <li [ngbNavItem]="1" class="Tab.inline Tab-option nav-item">
-                    <button ngbNavLink>
-                        Positions
-                    </button>
-                    <ng-template ngbNavContent>
-                        <div class="PositionsList">
-                            <div class="PositionEditor"></div>
-                            <div class="Exchange-empty-positions-list-note small App-card">
-                                No open positions
-                            </div>
-                            <div class="Exchange-list small"></div>
-                            <table class="Exchange-list large App-box">
-                                <tbody>
-                                    <tr class="Exchange-list-header">
-                                        <th>Position</th>
-                                        <th>Net Value</th>
-                                        <th>Size</th>
-                                        <th>Collateral</th>
-                                        <th>Entry Price</th>
-                                        <th>Mark Price</th>
-                                        <th>Liq. Price</th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="15">
-                                            <div class="Exchange-empty-positions-list-note">
-                                                No open positions
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="Exchange-list-item">
-                                        <td class="clickable">
-                                            <div class="Exchange-list-title"><span class="Tooltip"><span
-                                                        class="Tooltip-handle plain"><img
-                                                            class="Token-icon PositionList-token-icon"
-                                                            src="/assets/eth.png"                                                            alt="ETH" width="20">ETH</span></span></div>
-                                            <div class="Exchange-list-info-label"><span
-                                                    class="muted Position-leverage">1.10x&nbsp;</span><span
-                                                    class="positive">Long</span></div>
-                                        </td>
-                                        <td><span class="Tooltip"><span
-                                                    class="Tooltip-handle plain">$16.20</span></span>
-                                            <div class="Exchange-list-info-label cursor-pointer Position-pnl negative">
-                                                -$0.13 (-0.83%)</div>
-                                        </td>
-                                        <td>$17.97</td>
-                                        <td>
-                                            <div>
-                                                <div class="position-list-collateral"><span
-                                                        class="Tooltip PositionItem-collateral-tooltip"><span
-                                                            class="Tooltip-handle plain">$16.31</span></span><span
-                                                            (click)="openCollateralPopup()"
-                                                        class="edit-icon"><svg stroke="currentColor" fill="currentColor"
-                                                            stroke-width="0" viewBox="0 0 1024 1024" font-size="16"
-                                                            height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z">
-                                                            </path>
-                                                        </svg></span></div>
-                                                <div class="Exchange-list-info-label Position-collateral-amount  muted">
-                                                    16.3150&nbsp;USDC</div>
-                                            </div>
-                                        </td>
-                                        <td class="clickable">$1,636.97</td>
-                                        <td class="clickable">$1,628.02</td>
-                                        <td class="clickable"><span class="Tooltip"><span
-                                                    class="Tooltip-handle plain">$243.58</span></span></td>
-                                        <td><button class="Exchange-list-action" (click)="openClosePosPopup()">Close</button></td>
-                                        <td>
-                                            <div id="headlessui-menu-button-18" aria-haspopup="true"
-                                                aria-expanded="false"><button class="PositionDropdown-dots-icon"><svg
-                                                        stroke="currentColor" fill="currentColor" stroke-width="0"
-                                                        viewBox="0 0 20 20" font-size="20" font-weight="700"
-                                                        height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
-                                                        </path>
-                                                    </svg></button></div>
-                                            <div class="PositionDropdown-extra-options"></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+        <div class="Exchange-list small">
+            <div class="App-card">
+                <div>
+                    <div class="App-card-title Position-card-title"><span class="Exchange-list-title inline-flex"><img
+                                class="Token-icon PositionList-token-icon"
+                                src="/assets/eth.png" alt="ETH" width="20">ETH</span>
+                        <div><span class="Position-leverage">15.39x&nbsp;</span><span
+                                class="Exchange-list-side negative">Short</span></div>
+                    </div>
+                    <div class="App-card-divider"></div>
+                    <div class="App-card-content">
+                        <div class="App-card-row">
+                            <div class="label">Market</div>
+                            <div>ETH/USD
+                                [WETH-USDC]</div>
                         </div>
-                    </ng-template>
-                </li>
-                <li [ngbNavItem]="2" class="Tab.inline Tab-option nav-item">
-                    <button ngbNavLink>
-                        Orders
-                    </button>
-                    <ng-template ngbNavContent>
-                        <div class="PositionsList">
-                            <div class="PositionEditor"></div>
-                            <div class="Exchange-empty-positions-list-note small App-card">
-                                No open positions
-                            </div>
-                            <div class="Exchange-list small"></div>
-                            <table class="Exchange-list large App-box">
-                                <tbody>
-                                    <tr class="Exchange-list-header">
-                                        <th>Position</th>
-                                        <th>Net Value</th>
-                                        <th>Size</th>
-                                        <th>Collateral</th>
-                                        <th>Entry Price</th>
-                                        <th>Mark Price</th>
-                                        <th>Liq. Price</th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="15">
-                                            <div class="Exchange-empty-positions-list-note">
-                                                No open positions
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="App-card-row">
+                            <div class="label">Net Value</div>
+                            <div><span class="Tooltip"><span class="Tooltip-handle plain">$7.69</span></span></div>
                         </div>
-                    </ng-template>
-                </li>
-                <li [ngbNavItem]="3" class="Tab.inline Tab-option nav-item">
-                    <button ngbNavLink>
-                        Trades
-                    </button>
-                    <ng-template ngbNavContent>
-                        <div class="PositionsList">
-                            <div class="PositionEditor"></div>
-                            <div class="Exchange-empty-positions-list-note small App-card">
-                                No open positions
-                            </div>
-                            <div class="Exchange-list small"></div>
-                            <table class="Exchange-list large App-box">
-                                <tbody>
-                                    <tr class="Exchange-list-header">
-                                        <th>Position</th>
-                                        <th>Net Value</th>
-                                        <th>Size</th>
-                                        <th>Collateral</th>
-                                        <th>Entry Price</th>
-                                        <th>Mark Price</th>
-                                        <th>Liq. Price</th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="15">
-                                            <div class="Exchange-empty-positions-list-note">
-                                                No open positions
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="App-card-row">
+                            <div class="label">PnL</div>
+                            <div><span class="Exchange-list-info-label cursor-pointer Position-pnl positive">
+                                    +$0.06 (+0.82%)</span></div>
                         </div>
-                    </ng-template>
-                </li>
-            </ul>
-            <div class="align-right Exchange-should-show-position-lines">
-                <div class="Checkbox muted chart-positions">
-                    <span class="Checkbox-icon-wrapper"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
-                            version="1.1" viewBox="0 0 16 16" class="App-icon Checkbox-icon inactive" height="1em"
-                            width="1em" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M14 0h-12c-1.1 0-2 0.9-2 2v12c0 1.1 0.9 2 2 2h12c1.1 0 2-0.9 2-2v-12c0-1.1-0.9-2-2-2zM14 14h-12v-12h12v12z">
-                            </path>
-                        </svg></span><span class="Checkbox-label"><span>Chart positions</span></span>
+                        <div class="App-card-row">
+                            <div class="label">Size</div>
+                            <div>$117.49</div>
+                        </div>
+                        <div class="App-card-row">
+                            <div class="label">Collateral</div>
+                            <div class="position-list-collateral">
+                                <div class="position-list-collateral"><span
+                                        class="Tooltip PositionItem-collateral-tooltip"><span
+                                            class="Tooltip-handle plain">$7.63</span></span></div>
+                                <div class="Exchange-list-info-label Position-collateral-amount  muted">7.6322&nbsp;USDC
+                                </div><span class="edit-icon"><svg stroke="currentColor" fill="currentColor"
+                                        stroke-width="0" viewBox="0 0 1024 1024" font-size="16" height="1em" width="1em"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z">
+                                        </path>
+                                    </svg></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="App-card-divider"></div>
+                    <div class="App-card-content">
+                        <div class="App-card-row">
+                            <div class="label">Entry Price</div>
+                            <div>$1,627.37</div>
+                        </div>
+                        <div class="App-card-row">
+                            <div class="label">Mark Price</div>
+                            <div>$1,625.35</div>
+                        </div>
+                        <div class="App-card-row">
+                            <div class="label">Liq. Price</div>
+                            <div>$1,714.49</div>
+                        </div>
+                    </div>
+                    <div class="App-card-divider"></div>
+                    <div class="App-card-row">
+                        <div class="label">Orders</div>
+                        <div>None</div>
+                    </div>
+                    <div class="App-card-divider"></div>
+                    <div class="remove-top-margin"><button
+                            class="button secondary mr-md mt-md center" (click)="openClosePosPopup()">Close</button><button
+                            class="button secondary mr-md mt-md center" (click)="openCollateralPopup()">Edit
+                            Collateral</button><button class="button secondary mt-md center">Trigger</button></div>
+                </div>
+            </div>
+            <div class="App-card">
+                <div>
+                    <div class="App-card-title Position-card-title Position-active-card"><span
+                            class="Exchange-list-title inline-flex"><img class="Token-icon PositionList-token-icon"
+                                src="/assets/eth.png" alt="ETH" width="20">ETH</span>
+                        <div><span class="Position-leverage">3.39x&nbsp;</span><span
+                                class="Exchange-list-side positive">Long</span></div>
+                    </div>
+                    <div class="App-card-divider"></div>
+                    <div class="App-card-content">
+                        <div class="App-card-row">
+                            <div class="label">Market</div>
+                            <div>ETH/USD
+                                [USDC-DAI]</div>
+                        </div>
+                        <div class="App-card-row">
+                            <div class="label">Net Value</div>
+                            <div><span class="Tooltip"><span class="Tooltip-handle plain">$18.88</span></span></div>
+                        </div>
+                        <div class="App-card-row">
+                            <div class="label">PnL</div>
+                            <div><span class="Exchange-list-info-label cursor-pointer Position-pnl negative">
+                                    -$0.40 (-2.10%)</span></div>
+                        </div>
+                        <div class="App-card-row">
+                            <div class="label">Size</div>
+                            <div>$64.80</div>
+                        </div>
+                        <div class="App-card-row">
+                            <div class="label">Collateral</div>
+                            <div class="position-list-collateral">
+                                <div class="position-list-collateral"><span
+                                        class="Tooltip PositionItem-collateral-tooltip"><span
+                                            class="Tooltip-handle plain">$19.11</span></span></div>
+                                <div class="Exchange-list-info-label Position-collateral-amount  muted">
+                                    19.1124&nbsp;USDC</div><span class="edit-icon"><svg stroke="currentColor"
+                                        fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" font-size="16"
+                                        height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z">
+                                        </path>
+                                    </svg></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="App-card-divider"></div>
+                    <div class="App-card-content">
+                        <div class="App-card-row">
+                            <div class="label">Entry Price</div>
+                            <div>$1,630.14</div>
+                        </div>
+                        <div class="App-card-row">
+                            <div class="label">Mark Price</div>
+                            <div>$1,625.35</div>
+                        </div>
+                        <div class="App-card-row">
+                            <div class="label">Liq. Price</div>
+                            <div><span class="Tooltip"><span class="Tooltip-handle plain">$1,175.67</span></span></div>
+                        </div>
+                    </div>
+                    <div class="App-card-divider"></div>
+                    <div class="App-card-row">
+                        <div class="label">Orders</div>
+                        <div>None</div>
+                    </div>
+                    <div class="App-card-divider"></div>
+                    <div class="remove-top-margin"><button
+                            class="button secondary mr-md mt-md center">Close</button><button
+                            class="button secondary mr-md mt-md center">Edit
+                            Collateral</button><button class="button secondary mt-md center">Trigger</button></div>
                 </div>
             </div>
         </div>
-        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+        <table class="Exchange-list large App-box">
+            <tbody>
+                <tr class="Exchange-list-header">
+                    <th>Position</th>
+                    <th>Net Value</th>
+                    <th>Size</th>
+                    <th>Collateral</th>
+                    <th>Entry
+                        Price</th>
+                    <th>Mark Price</th>
+                    <th>Liq Price</th>
+                </tr>
+                <tr class="Exchange-list-item">
+                    <td class="clickable">
+                        <div class="Exchange-list-title"><span class="Tooltip"><span class="Tooltip-handle plain"><img
+                                        class="Token-icon PositionList-token-icon"
+                                        src="/assets/eth.png" alt="ETH"
+                                        width="20">ETH</span></span></div>
+                        <div class="Exchange-list-info-label"><span
+                                class="muted Position-leverage">15.39x&nbsp;</span><span class="negative">Short</span>
+                        </div>
+                    </td>
+                    <td><span class="Tooltip"><span class="Tooltip-handle plain">$7.69</span></span>
+                        <div class="Exchange-list-info-label cursor-pointer Position-pnl positive">
+                            +$0.06 (+0.82%)</div>
+                    </td>
+                    <td>$117.49</td>
+                    <td>
+                        <div>
+                            <div class="position-list-collateral"><span
+                                    class="Tooltip PositionItem-collateral-tooltip"><span
+                                        class="Tooltip-handle plain">$7.63</span></span><span class="edit-icon"><svg
+                                        stroke="currentColor" fill="currentColor" stroke-width="0"
+                                        viewBox="0 0 1024 1024" font-size="16" height="1em" width="1em"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z">
+                                        </path>
+                                    </svg></span></div>
+                            <div class="Exchange-list-info-label Position-collateral-amount  muted">7.6322&nbsp;USDC
+                            </div>
+                        </div>
+                    </td>
+                    <td class="clickable">$1,627.37</td>
+                    <td class="clickable">$1,625.35</td>
+                    <td class="clickable">$1,714.49</td>
+                    <td><button class="Exchange-list-action">Close</button></td>
+                    <td>
+                        <div id="headlessui-menu-button-96" aria-haspopup="true" aria-expanded="false"><button
+                                class="PositionDropdown-dots-icon"><svg stroke="currentColor" fill="currentColor"
+                                    stroke-width="0" viewBox="0 0 20 20" font-size="20" font-weight="700" height="1em"
+                                    width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
+                                    </path>
+                                </svg></button></div>
+                        <div class="PositionDropdown-extra-options"></div>
+                    </td>
+                </tr>
+                <tr class="Exchange-list-item Exchange-list-item-active">
+                    <td class="clickable">
+                        <div class="Exchange-list-title"><span class="Tooltip"><span class="Tooltip-handle plain"><img
+                                        class="Token-icon PositionList-token-icon"
+                                        src="/assets/eth.png" alt="ETH"
+                                        width="20">ETH</span></span></div>
+                        <div class="Exchange-list-info-label"><span
+                                class="muted Position-leverage">3.39x&nbsp;</span><span class="positive">Long</span>
+                        </div>
+                    </td>
+                    <td><span class="Tooltip"><span class="Tooltip-handle plain">$18.88</span></span>
+                        <div class="Exchange-list-info-label cursor-pointer Position-pnl negative">
+                            -$0.40 (-2.10%)</div>
+                    </td>
+                    <td>$64.80</td>
+                    <td>
+                        <div>
+                            <div class="position-list-collateral"><span
+                                    class="Tooltip PositionItem-collateral-tooltip"><span
+                                        class="Tooltip-handle plain">$19.11</span></span><span class="edit-icon"><svg
+                                        stroke="currentColor" fill="currentColor" stroke-width="0"
+                                        viewBox="0 0 1024 1024" font-size="16" height="1em" width="1em"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z">
+                                        </path>
+                                    </svg></span></div>
+                            <div class="Exchange-list-info-label Position-collateral-amount  muted">19.1124&nbsp;USDC
+                            </div>
+                        </div>
+                    </td>
+                    <td class="clickable">$1,630.14</td>
+                    <td class="clickable">$1,625.35</td>
+                    <td class="clickable"><span class="Tooltip"><span
+                                class="Tooltip-handle plain">$1,175.67</span></span></td>
+                    <td><button class="Exchange-list-action">Close</button></td>
+                    <td>
+                        <div id="headlessui-menu-button-100" aria-haspopup="true" aria-expanded="false"><button
+                                class="PositionDropdown-dots-icon"><svg stroke="currentColor" fill="currentColor"
+                                    stroke-width="0" viewBox="0 0 20 20" font-size="20" font-weight="700" height="1em"
+                                    width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
+                                    </path>
+                                </svg></button></div>
+                        <div class="PositionDropdown-extra-options"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

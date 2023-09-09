@@ -1,8 +1,14 @@
 <div>
   <div class="Exchange-swap-section buy-input">
     <div class="buy-input-top-row">
-      <div class="text-gray">Pay</div>
-      <div class="align-right clickable"><span class="text-gray">Balance</span></div>
+      <div class="text-gray">{{topLeftLabel}}</div>
+      <div class="align-right clickable">
+        <span class="text-gray">{{topRightLabel}}</span>
+        <span class="Exchange-swap-label" *ngIf="topRightValue">
+          {{ topRightLabel ? seperator : '' }}
+          &nbsp;{{ topRightValue }}
+        </span>
+      </div>
     </div>
     <div class="Exchange-swap-section-bottom">
       <div class="Exchange-swap-input-container">
@@ -10,7 +16,7 @@
       </div>
       <div class="PositionEditor-token-symbol">
         <div class="TokenSelector">
-            <app-token-select></app-token-select>
+            <app-token-select [usdStandardOnly]="usdStandardOnly"></app-token-select>
         </div>
       </div>
     </div>

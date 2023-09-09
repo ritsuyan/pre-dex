@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TradeComponent } from './trade/trade.component';
 import { HeaderComponent } from './header/header.component';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { TradeOrderTabsComponent } from './trade-order-tabs/trade-order-tabs.component';
@@ -16,6 +17,7 @@ import { ConnectWalletPopupComponent } from './connect-wallet-popup/connect-wall
 import { ClosePositionPopupComponent } from './close-position-popup/close-position-popup.component';
 import { EditCollateralPopupComponent } from './edit-collateral-popup/edit-collateral-popup.component';
 import { ExchangeListComponent } from './exchange-list/exchange-list.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +32,13 @@ import { ExchangeListComponent } from './exchange-list/exchange-list.component';
     ClosePositionPopupComponent,
     EditCollateralPopupComponent,
     ExchangeListComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbDropdownModule,
+    NgbTooltipModule,
     NgbNavModule,
     NgxSliderModule
   ],

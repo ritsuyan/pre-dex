@@ -98,8 +98,7 @@ ul.orderBook-box > li > button.active {
  .book-header {
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 16px;
-    margin-top: 14px;
+    padding: 1rem;
     display: flex;
     width: 100%;
 }
@@ -1128,3 +1127,12 @@ ul.orderBook-box > li > button.active {
 */
 
 /*Menus*/
+
+::-webkit-scrollbar {
+    width: 1px;
+    background-color: transparent;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }

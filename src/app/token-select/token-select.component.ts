@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ViewEncapsulation, EventEmitter, Input, OnInit, Output, ElementRef, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-token-select',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./token-select.component.scss']
 })
 export class TokenSelectComponent {
-
+  @Input() usdStandardOnly?: boolean;
 }

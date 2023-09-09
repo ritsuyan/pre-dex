@@ -119,6 +119,35 @@
   padding-top: .31rem
 }
 
+.smaller-exchange-left {
+  display: none;
+}
+
+ul.orderBook-box {
+  width: 100%;
+  display: flex;
+  border: none;
+}
+
+ul.orderBook-box > li {
+  flex: 1;
+}
+
+ul.orderBook-box > li > button {
+  width: 100%;
+  border-radius: 0;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  border: 1px solid #132236;
+  background-color: transparent;
+  color: #6683A7;
+}
+
+ul.orderBook-box > li > button.active {
+  border: 1px solid #6683A7;
+}
+
 .Exchange-swap-button {
   display: block;
   width: 100%
@@ -126,7 +155,8 @@
 
 .Exchange-swap-ball-container {
   position: relative;
-  z-index: 1
+  z-index: 1;
+  cursor: pointer;
 }
 
 .Exchange-swap-ball-icon {
@@ -179,6 +209,15 @@
   font-size: 15px;
 }
 
+.Exchange-swap-order-type-tabs > div.Tab-option {
+  color: $-primary-gray-color;
+  cursor: pointer;
+}
+
+.Exchange-swap-order-type-tabs > div.Tab-option.active {
+  color: white;
+}
+
 // We need to use ::ng-deep to overcome view encapsulation
 ::ng-deep {
   .custom-slider .ngx-slider .ngx-slider-bar {
@@ -195,8 +234,7 @@
     top: -7px; /* to remove the default positioning */
     bottom: 0;
     border-radius: 50%;
-    background-color: transparent;
-    border: 2px solid #3fb68b;
+    background-color: #3fb68b;;
   }
 
   .custom-slider .ngx-slider .ngx-slider-pointer:after {
@@ -213,8 +251,8 @@
   }
 
   .custom-slider .ngx-slider .ngx-slider-tick {
-    width: 2px;
-    height: 6px;
+    width: 3px;
+    height: 7px;
     margin-left: 4px;
     border-radius: 0;
     background: #1e233d;
@@ -222,7 +260,7 @@
   }
 
   .custom-slider .ngx-slider .ngx-slider-tick.ngx-slider-selected {
-    background: #1e233d;
+    background: #34CB88;
   }
 
   .ngx-slider-inner-tooltip {
@@ -232,6 +270,7 @@
 
 .custom-slider {
   margin-bottom: 25px;
+  font-size: $-font-sm;
 }  
 
 .Exchange-leverage-box,.Exchange-swap-box-info {
@@ -257,19 +296,16 @@
     margin-right: .8rem;
 }
 
+.Exchange-left-box {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 70% 30%;
+}
+
 .Exchange-right {
   display: grid;
   grid-template-rows: auto 1fr;
   background: $-div-bg-color;
-  width: 25%;
-}
-
-.Exchange-content {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-gap: 1rem;
-  width: 100%;
-  padding: 0 1%;
 }
 
 .Exchange-swap-box {
@@ -337,7 +373,10 @@
 .Exchange-content {
   display: grid;
   grid-template-columns: 1fr auto;
-  grid-gap: 1.5rem;
+  grid-gap: 2rem;
+  padding: 3.1rem;
+  padding-top: 0rem;
+  margin-top: -1.5rem;
 }
 
 .Exchange-position-list-orders {
@@ -552,9 +591,6 @@
 }
 
 .ExchangeChart-top-inner {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  grid-column-gap: 4.65rem;
   align-items: center;
   padding-left: 0.9rem;
   padding-right: 2rem;
@@ -576,8 +612,6 @@
   font-size: var(--font-base);
   padding: 0.9rem 0.31rem;
   height: 68px;
-  display: flex;
-  align-items: center;
 }
 
 .ExchangeChart.tv .ExchangeChart-bottom {
@@ -1112,10 +1146,43 @@ table.Exchange-list-small td {
   padding: 1.05rem;
 }
 
+.chartsSwitch {
+  padding: 10%;
+}
+
+.chart-content {
+  height: 327px;
+  overflow: auto;
+}
+
+.chartsSwitch > li {
+  flex: 1;
+  width: 40%;
+  padding: 0;
+  border: none;
+}
+
+.chartsSwitch > li > button {
+  border: none;
+  outline: none;
+  height: 100%;
+}
+
+.chartsSwitch > li > button.nav-link.active {
+  background: #2D42FC !important;
+  border: none;
+}
+
 .Exchange-list-card-header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 0.8rem;
+}
+
+.mobile-switch-chart {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 1rem;
 }
 
 .Exchange-list-title {
@@ -1287,7 +1354,6 @@ table.Exchange-list-small td {
 
 @media (max-width: 1275px) {
   .ExchangeChart-top-inner {
-    grid-gap: 2.5rem;
   }
 }
 
@@ -1303,7 +1369,7 @@ table.Exchange-list-small td {
   }
 
   .ExchangeChart-header {
-    grid-template-columns: auto 103px;
+    grid-template-columns: auto;
   }
 
   .VersionSwitch-wrapper {
@@ -1425,9 +1491,21 @@ table.Exchange-list-small td {
     display: none;
   }
 
+  .smaller-exchange-left {
+    display: block;
+  }
+
+  .biggger-box {
+    display: none;
+  }
+
   .Exchange-content {
     padding: 1.5rem;
     padding-top: 1.5rem;
+  }
+
+  .Exchange-left {
+    display: none;
   }
 
   .Exchange {
